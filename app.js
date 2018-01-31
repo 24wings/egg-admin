@@ -7,6 +7,10 @@ module.exports = app => {
   //   const mysqlConfig = await app.configCenter.fetch("mysql");
   //   app.database = app.mysql.createInstance(mysqlConfig);
   // });
+  app.beforeStart(async function() {
+    // 应用会等待这个函数执行完成才启动
+    // await app.model.sync();
+  });
   app.config.coreMiddleware.unshift("report");
   app.once("server", server => {
     // websocket

@@ -42,6 +42,15 @@ module.exports = appInfo => {
       app: true,
       // 是否加载到 agent 上，默认关闭
       agent: false
+    },
+    sequelize: {
+      dialect: "mysql", // support: mysql, mariadb, postgres, mssql
+      database: "cmswing",
+      host: "127.0.0.1",
+      port: "3306",
+      username: "root",
+      password: "root",
+      sync: { force: true }
     }
   };
   return config;
