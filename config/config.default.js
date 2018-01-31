@@ -1,5 +1,7 @@
 "use strict";
 
+const path = require("path");
+
 module.exports = appInfo => {
   const config = {
     keys: appInfo.name + "_1517297464353_2662",
@@ -36,7 +38,7 @@ module.exports = appInfo => {
         // 密码
         password: "root",
         // 数据库名
-        database: "cmswing"
+        database: "test"
       },
       // 是否加载到 app 上，默认开启
       app: true,
@@ -51,7 +53,13 @@ module.exports = appInfo => {
       username: "root",
       password: "root",
       sync: { force: true }
+    },
+    static: {
+      prefix: "/",
+      // maxAge: 31536000,
+      dir: path.join(appInfo.baseDir, "app/public")
     }
   };
+
   return config;
 };
